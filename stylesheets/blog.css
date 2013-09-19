@@ -3,7 +3,6 @@ body {
   width: 1000px;
   margin: 0 auto;
   padding: 10px;
-  overflow: hidden;
 }
 
 pre {
@@ -18,7 +17,6 @@ pre {
 .logo {
   font-size: 20px;
   color: black;
-  overflow: hidden;
   text-decoration: none;
   font-weight: bold;
 }
@@ -39,7 +37,6 @@ pre {
 .post-title {
   font-size: 20px;
   font-weight: bold;
-  overflow: hidden;
 }
 
 .post-created {
