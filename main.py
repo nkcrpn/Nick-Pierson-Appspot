@@ -1,5 +1,4 @@
 import webapp2
-import cgi
 from python.handler import Handler
 from python.rot13 import Rot13
 from python.signup import *

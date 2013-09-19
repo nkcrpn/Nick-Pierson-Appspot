@@ -1,8 +1,10 @@
+import os
 import webapp2
 import jinja2
 
-my_dir = "/home/nick/Dev/Workspace/AppEngine/Udacity/templates/"
-jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(my_dir),
+template_dir = os.path.join(os.path.dirname(__file__), '../templates')
+jinja_env = jinja2.Environment(
+    loader = jinja2.FileSystemLoader(template_dir),
                                autoescape=True)
 
 class Handler(webapp2.RequestHandler):
