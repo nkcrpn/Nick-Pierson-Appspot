@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nick's Blog!</title>
+    <link href="/stylesheets/blog.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <h1 class="title">Nick's Blog</h1>
+
+    <a class="link" href="/blog/newpost/">Submit new post</a>
+
+    <hr>
+
+    {% for post in posts %}
+      <div class="post">
+        <div class="post-title">{{post.title}}</div>
+        <pre class="post-message">{{post.message}}</pre>
+      </div>
+    {% endfor %}
+  </body>
+</html>
