@@ -12,9 +12,9 @@
     {% for post in posts %}
       <div class="post">
         <div class="post-created">{{post.created.date()}}</div>
-        <div class="post-title">{{post.title}}</div>
+        <div class="post-subject">{{post.subject}}</div>
         <hr>
-        <pre>{{post.message}}</pre>
+        <pre>{{post.content}}</pre>
       </div>
     {% endfor %}
   </body>

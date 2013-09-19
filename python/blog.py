@@ -2,8 +2,8 @@ from handler import Handler
 from google.appengine.ext import db
 
 class Post(db.Model):
-    title = db.StringProperty(required = True)
-    message = db.TextProperty(required = True)
+    subject = db.StringProperty(required = True)
+    content = db.TextProperty(required = True)
     created = db.DateTimeProperty(auto_now_add = True)
 
 class Blog(Handler):
@@ -13,25 +13,25 @@ class Blog(Handler):
         self.render("blog.html", posts=posts)
 
 class NewPost(Handler):
-    def render_page(self, title="", message="", error=""):
-        self.render("new_post.html", title=title, message=message,
+    def render_page(self, subject="", content="", error=""):
+        self.render("new_post.html", subject=subject, content=content,
                     error=error)
 
     def get(self):
         self.render_page()
 
     def post(self):
-        title = self.request.get("title")
-        message = self.request.get("message")
+        subject = self.request.get("subject")
+        content = self.request.get("content")
 
-        if title and message:
-            post = Post(title=title, message=message)
+        if subject and content:
+            post = Post(subject=subject, content=content)
             post.put()
 
             self.redirect("/blog/" + str(post.key().id()))
         else:
-            error = "Please enter both a title and message!"
-            self.render_page(title, message, error)
+            error = "Please enter both a subject and content!"
+            self.render_page(subject, content, error)
 
 class BlogPost(Handler):
     def render_page(self, blog_id=None):
