@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Submit a new blog post</title>
+    <link href="/stylesheets/new_post.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <h2 class="logo">Nick's Blog</h2>
+    <h1 class="header">Submit New Post</h1>
+
+    <form method="post">
+      <label>
+        <div>Title</div>
+        <input type="text" name="title" value="{{title}}">
+      </label>
+      <label>
+        <div>Message</div>
+        <textarea name="message">{{message}}</textarea>
+      </label>
+
+      <div class="error">{{error}}</div>
+
+      <input type="submit">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+body {
+  font-family: sans-serif;
+  width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.logo {
+  font-size: 20px;
+  color: black;
+  overflow: hidden;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header {
+  text-align: center;
+}
+
+.link {
+  float: right;
+}
+
+.post {
+  border: 1px solid transparent;
+  margin-top: 20px;
+}
+
+.post-title {
+  font-size: 20px;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.post-created {
+  display: inline;
+  float: right;
+}

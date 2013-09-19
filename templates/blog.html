@@ -5,15 +5,15 @@
     <link href="/stylesheets/blog.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <h1 class="title">Nick's Blog</h1>
-
-    <a class="link" href="/blog/newpost/">Submit new post</a>
-
-    <hr>
+    <a href="/blog" class="logo">Nick's Blog</a>
+    <a href="/blog/newpost" class="link">Submit new post</a>
+    <h1 class="header">Home</h1>
 
     {% for post in posts %}
       <div class="post">
+        <div class="post-created">{{post.created.date()}}</div>
         <div class="post-title">{{post.title}}</div>
+        <hr>
         <pre class="post-message">{{post.message}}</pre>
       </div>
     {% endfor %}
