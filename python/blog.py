@@ -14,7 +14,7 @@ class Blog(Handler):
 
 class NewPost(Handler):
     def render_page(self, subject="", content="", error=""):
-        self.render("new_post.html", subject=subject, content=content,
+        self.render("blog_new_post.html", subject=subject, content=content,
                     error=error)
 
     def get(self):
