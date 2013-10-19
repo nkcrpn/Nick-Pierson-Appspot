@@ -1,6 +1,7 @@
 from handler import Handler
 from google.appengine.ext import db
 import re, hashlib, string, random, json
+from datetime import datetime
 
 SECRET = "not really a secret"
 
@@ -47,11 +48,42 @@ def show_welcome(self, user):
     self.response.headers.add_header("Set-Cookie", cookie)
     self.redirect('/blog/welcome')
 
+CACHE = {}
+front_page_key = "front page"
+def get_all_posts():
+    if front_page_key in CACHE:
+        return CACHE[front_page_key][0]
+    else:
+        posts =  db.GqlQuery("SELECT * FROM Post "
+                       "ORDER BY created DESC")
+        CACHE[front_page_key] = (posts, datetime.now())
+        return posts
+
+def get_home_query_diff():
+    if front_page_key in CACHE:
+        return (datetime.now() - CACHE[front_page_key][1]).seconds
+    else:
+        return 0
+
+def get_post(post_id):
+    if post_id in CACHE:
+        return CACHE[post_id][0]
+    else:
+        post = Post.get_by_id(post_id, parent=None)
+        CACHE[post_id] = (post, datetime.now())
+        return post
+
+def get_query_diff(post_id):
+    if post_id in CACHE:
+        return (datetime.now() - CACHE[post_id][1]).seconds
+    else:
+        return 0
+
 class Blog(Handler):
     def get(self):
-        posts = db.GqlQuery("SELECT * FROM Post "
-                            "ORDER BY created Desc")
-        self.render("blog.html", posts=posts)
+        difference = get_home_query_diff()
+        posts = get_all_posts()
+        self.render("blog.html", posts=posts, seconds=difference)
 
 class BlogSignup(Handler):
     USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
@@ -168,19 +200,27 @@ class NewPost(Handler):
             post = Post(subject=subject, content=content)
             post.put()
 
+            CACHE.pop(front_page_key, None)
+
             self.redirect("/blog/" + str(post.key().id()))
         else:
             error = "Please enter both a subject and content!"
             self.render_page(subject, content, error)
 
 class BlogPost(Handler):
-    def render_page(self, blog_id=None):
-        blog_post = Post.get_by_id(blog_id, parent=None)
+    def render_page(self, blog_id=None, seconds=0):
+        blog_post = get_post(blog_id)
         self.render("blog_post.html", blog_post=blog_post,
-                    created_date=blog_post.created.date)
+                    created_date=blog_post.created.date,
+                    seconds=seconds)
 
     def get(self, blog_id):
-        self.render_page(int(blog_id))
+        self.render_page(int(blog_id), get_query_diff(int(blog_id)))
+
+class BlogFlush(Handler):
+    def get(self):
+        CACHE.clear()
+        self.redirect('/blog/')
 
 class BlogJSON(Handler):
     def get(self):

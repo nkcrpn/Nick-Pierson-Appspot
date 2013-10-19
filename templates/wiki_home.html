@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link href="/stylesheets/wiki.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="holder">
+      <span class="logo">
+        <a href="/wiki" class="clean-link">Nick's Wiki</a>
+      </span>
+      <span class="links">
+        {% if signed_in %}
+          {{username}}
+          [<a href="/logout" class="clean-link">logout</a>]
+        {% endif %}
+
+        {% if not signed_in %}
+          <a href="/wiki/login" class="clean-link">Login</a>
+          |
+          <a href="/wiki/signup" class="clean-link">Sign Up</a>
+        {% endif %}
+      </span>
+    </div>
+    <div class="content">
+      <p>
+        Hello! Welcome to Nick's Wiki. This is a basic wiki site where
+        all content is editable by the users. Use the form below to get
+        started.
+      </p>
+    </div>
+    <form method="post">
+      <label>
+        <div>Enter topic of interest:</div>
+        <input type="text" name="topic" />
+      </label>
+      <input type="submit" value="Go">
+    </form>
+  </body>
+<html>

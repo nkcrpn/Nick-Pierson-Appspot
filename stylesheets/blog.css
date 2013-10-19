@@ -76,3 +76,7 @@ input[type=submit] {
   display: inline;
   float: right;
 }
+
+.bottom-info {
+  text-align: right;
+}

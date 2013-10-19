@@ -3,6 +3,7 @@ from home import Home
 from rot13 import Rot13
 from asciichan import AsciiChan
 from blog import *
+from wiki.wiki import *
 
 application = webapp2.WSGIApplication(
     [(r'/', Home),
@@ -14,7 +15,9 @@ application = webapp2.WSGIApplication(
      (r'/blog/welcome', BlogWelcome),
      (r'/blog/login', BlogLogin),
      (r'/blog/logout', BlogLogout),
+     (r'/blog/flush', BlogFlush),
      (r'/blog/(\d+)', BlogPost),
      (r'/blog/?.json', BlogJSON),
-     (r'/blog/(\d+)/?.json', BlogPostJSON)],
+     (r'/blog/(\d+)/?.json', BlogPostJSON),
+     (r'/wiki/?', WikiHome)],
      debug = True)
