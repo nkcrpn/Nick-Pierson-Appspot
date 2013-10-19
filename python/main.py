@@ -5,6 +5,7 @@ from asciichan import AsciiChan
 from blog import *
 from wiki.wiki import *
 
+PAGE_RE = r'(/wiki/(?:[a-zA-Z0-9_-]+/?)*)'
 application = webapp2.WSGIApplication(
     [(r'/', Home),
      (r'/rot13', Rot13),
@@ -19,5 +20,6 @@ application = webapp2.WSGIApplication(
      (r'/blog/(\d+)', BlogPost),
      (r'/blog/?.json', BlogJSON),
      (r'/blog/(\d+)/?.json', BlogPostJSON),
-     (r'/wiki/?', WikiHome)],
+     (r'/wiki/?', WikiHome),
+     (PAGE_RE, WikiPage)],
      debug = True)
