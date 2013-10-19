@@ -5,15 +5,23 @@ body {
   padding: 10px;
 }
 
+form {
+  margin-top: 20px;
+}
+
+input[type=submit] {
+  font-size: 20px;
+}
+
+table {
+  font-size: 20px;
+  border-spacing: 5px;
+}
+
 .logo {
   color: black;
   font-size: 25px;
   font-weight: bold;
-}
-
-.links {
-  float: right;
-  vertical-align: bottom;
 }
 
 .clean-link {
@@ -28,6 +36,6 @@ body {
   font-weight: bold;
 }
 
-.content {
-  margin-top: 20px;
+.error {
+  color: red;
 }

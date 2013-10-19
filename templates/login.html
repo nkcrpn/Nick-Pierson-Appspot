@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Log in</title>
+    <link href="/stylesheets/accounts.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="holder">
+      <span class="logo">
+        <a href="/" class="clean-link">Home</a>
+      </span>
+    </div>
+    <div class="title">
+      Log in
+    </div>
+    <form method="post">
+      <table>
+        <tr>
+          <td>Username</td>
+          <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+          <td><div class="error">{{error}}</div></td>
+        </tr>
+        <tr>
+          <td><input type="submit" value="Log in"></td>
+        </tr>
+    </form>
+  </body>
+</html>

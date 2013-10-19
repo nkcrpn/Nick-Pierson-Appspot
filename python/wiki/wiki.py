@@ -16,7 +16,3 @@ class WikiPage(Handler):
         topic = page.split('/')[2]
 
         self.render("wiki_no_page.html")
-
-class WikiSignUp(Handler):
-    def get(self):
-        self.render("wiki_signup.html")

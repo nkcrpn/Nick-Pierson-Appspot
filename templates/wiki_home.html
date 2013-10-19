@@ -7,7 +7,7 @@
   <body>
     <div class="holder">
       <span class="logo">
-        <a href="/wiki" class="clean-link">Nick's Wiki</a>
+        <a href="/" class="clean-link">Home</a>
       </span>
       <span class="links">
         {% if signed_in %}
@@ -16,14 +16,14 @@
         {% endif %}
 
         {% if not signed_in %}
-          <a href="/wiki/login" class="clean-link">Login</a>
+          <a href="/login" class="clean-link">Login</a>
           |
-          <a href="/wiki/signup" class="clean-link">Sign Up</a>
+          <a href="/signup" class="clean-link">Sign Up</a>
         {% endif %}
       </span>
     </div>
     <div class="title">
-      Home
+      Nick's Wiki
     </div>
       <p class="content">
         Hello! Welcome to Nick's Wiki. This is a basic wiki site where
