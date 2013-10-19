@@ -21,5 +21,6 @@ application = webapp2.WSGIApplication(
      (r'/blog/?.json', BlogJSON),
      (r'/blog/(\d+)/?.json', BlogPostJSON),
      (r'/wiki/?', WikiHome),
+     (r'/wiki/signup', WikiSignUp),
      (PAGE_RE, WikiPage)],
      debug = True)

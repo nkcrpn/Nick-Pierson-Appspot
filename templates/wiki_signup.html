@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign up!</title>
+    <link href="/stylesheets/wiki.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="holder">
+      <span class="logo">
+        <a href="/wiki" class="clean-link">Nick's Wiki</a>
+      </span>
+    </div>
+    <div class="title">
+      Sign up
+    </div>
+    <form method="post">
+      <table>
+        <tr>
+          <td>Username</td>
+          <td><input type="text" name="username" value="{{username}}"></td>
+          <td>{{error_username}}</td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input type="password" name="password"></td>
+          <td>{{error_password}}</td>
+        </tr>
+        <tr>
+          <td>Verify</td>
+          <td><input type="password" name="verify"></td>
+          <td>{{error_verify}}</td>
+        <tr>
+        <tr>
+          <td><input type="submit" value="Sign Up"></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
