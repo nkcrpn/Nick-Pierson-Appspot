@@ -7,6 +7,7 @@ from wiki.wiki import *
 from accounts import *
 
 PAGE_RE = r'(/wiki/(?:[a-zA-Z0-9_-]+/?)*)'
+EDIT_RE = r'(/wiki/edit/(?:[a-zA-Z0-9_-]+/?)*)'
 application = webapp2.WSGIApplication(
     [(r'/', Home),
      (r'/rot13', Rot13),
@@ -21,5 +22,6 @@ application = webapp2.WSGIApplication(
      (r'/blog/?.json', BlogJSON),
      (r'/blog/(\d+)/?.json', BlogPostJSON),
      (r'/wiki/?', WikiHome),
+     (EDIT_RE, WikiEdit),
      (PAGE_RE, WikiPage)],
      debug = True)

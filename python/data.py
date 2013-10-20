@@ -36,9 +36,22 @@ class User(db.Model):
 
     @classmethod
     def get_user(cls, username):
-        return User.all().filter("username = ", username).get()
+        return cls.all().filter("username = ", username).get()
 
 class Post(db.Model):
     subject = db.StringProperty(required = True)
     content = db.TextProperty(required = True)
     created = db.DateTimeProperty(auto_now_add = True)
+
+class Page(db.Model):
+    topic = db.StringProperty(required = True)
+    content = db.TextProperty(required = True)
+
+    @classmethod
+    def make_page(cls, topic, content):
+        page = cls(topic=topic, content=content)
+        page.put()
+
+    @classmethod
+    def get_by_topic(cls, topic):
+        return cls.all().filter("topic = ", topic).get()

@@ -10,12 +10,12 @@
         <a href="/" class="clean-link">Home</a>
       </span>
       <span class="links">
-        {% if signed_in %}
+        {% if logged_in %}
           {{username}}
           [<a href="/logout" class="clean-link">logout</a>]
         {% endif %}
 
-        {% if not signed_in %}
+        {% if not logged_in %}
           <a href="/login" class="clean-link">Login</a>
           |
           <a href="/signup" class="clean-link">Sign Up</a>

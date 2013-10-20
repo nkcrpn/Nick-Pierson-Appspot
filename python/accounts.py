@@ -1,16 +1,15 @@
 from handler import Handler
 from utils import *
 from data import *
-import logging
+import urlparse
 
 class Accounts(Handler):
     def set_referrer_cookie(self):
         referer = self.request.headers.get('referer')
         if referer:
-            logging.error("Referer: " + referer)
-            referer = referer.split('/')[-1]
-            if referer != 'login' and referer != 'signup':
-                cookie = str("referrer=%s; Path=/" % referer)
+            path = urlparse.urlparse(referer)[2]
+            if path != '/login' and path != '/signup':
+                cookie = str("referrer=%s; Path=/" % path)
                 self.response.headers.add_header("Set-Cookie", cookie)
                 return
 
@@ -24,7 +23,7 @@ class Accounts(Handler):
 
     def return_user(self):
         referrer = self.request.cookies.get('referrer')
-        self.redirect('/' + referrer)
+        self.redirect(referrer)
 
 class SignUp(Accounts):
     def render_page(self, username="", error_username="",
@@ -87,4 +86,5 @@ class LogOut(Accounts):
     def get(self):
         cookie = str("user_id=; Path=/")
         self.response.headers.add_header("Set-Cookie", cookie)
-        self.return_user(self.REFERRER)
+        self.set_referrer_cookie()
+        self.return_user()
