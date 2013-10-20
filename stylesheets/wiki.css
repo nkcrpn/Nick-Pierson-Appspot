@@ -12,9 +12,17 @@ textarea {
   resize: none;
 }
 
+pre {
+  font-size: 17px;
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
 input[type=submit] {
-  font-size: 25px;
-  float: right;
+  font-size: 20px;
 }
 
 .logo {
@@ -38,6 +46,15 @@ input[type=submit] {
   color: black;
   font-size: 50px;
   font-weight: bold;
+}
+
+.search {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.search-input {
+  font-size: 20px;
 }
 
 .content {

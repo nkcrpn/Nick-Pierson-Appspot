@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{topic}}</title>
+    <link href="/stylesheets/wiki.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="holder">
+      <span class="logo">
+        <a href="/wiki" class="clean-link">Nick's Wiki</a>
+      </span>
+      <span class="links">
+        {% if username %}
+          <a href="/wiki/edit/{{topic}}" class="clean-link">edit</a>
+          | {{username}}
+          [<a href="/logout" class="clean-link">logout</a>]
+        {% else %}
+          <a href="/login" class="clean-link">Login</a>
+          |
+          <a href="/signup" class="clean-link">Sign Up</a>
+        {% endif %}
+      </span>
+    </div>
+    <div class="title">
+      {{topic}}
+    </div>
+    <pre class="content">{{content|safe}}</pre>
+  </head>
+</html>

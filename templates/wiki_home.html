@@ -10,12 +10,10 @@
         <a href="/" class="clean-link">Home</a>
       </span>
       <span class="links">
-        {% if logged_in %}
+        {% if username %}
           {{username}}
           [<a href="/logout" class="clean-link">logout</a>]
-        {% endif %}
-
-        {% if not logged_in %}
+        {% else %}
           <a href="/login" class="clean-link">Login</a>
           |
           <a href="/signup" class="clean-link">Sign Up</a>
@@ -30,12 +28,13 @@
         all content is editable by the users. Use the form below to get
         started.
       </p>
-    <form method="post">
-      <label>
-        <div>Enter topic of interest:</div>
-        <input type="text" name="topic" />
-      </label>
-      <input type="submit" value="Go">
+    <form method="post" class="search">
+      <table>
+        <tr>
+          <input class="search-input" type="text" name="topic" placeholder="Topic of interest" />
+          <input type="submit" value="Go" />
+        </tr>
+      </table>
     </form>
   </body>
 <html>

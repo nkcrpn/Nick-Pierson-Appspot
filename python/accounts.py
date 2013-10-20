@@ -23,7 +23,10 @@ class Accounts(Handler):
 
     def return_user(self):
         referrer = self.request.cookies.get('referrer')
-        self.redirect(referrer)
+        if referrer:
+            self.redirect(referrer)
+        else:
+            self.redirect('/')
 
 class SignUp(Accounts):
     def render_page(self, username="", error_username="",
@@ -86,5 +89,4 @@ class LogOut(Accounts):
     def get(self):
         cookie = str("user_id=; Path=/")
         self.response.headers.add_header("Set-Cookie", cookie)
-        self.set_referrer_cookie()
-        self.return_user()
+        self.redirect('/')

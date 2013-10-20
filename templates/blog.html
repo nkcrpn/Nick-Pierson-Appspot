@@ -14,7 +14,7 @@
         <div class="post-created">{{post.created.date()}}</div>
         <div class="post-subject">{{post.subject}}</div>
         <hr>
-        <pre>{{post.content}}</pre>
+        <pre>{{post.content|safe}}</pre>
       </div>
     {% endfor %}
     <div class="bottom-info">Queried {{seconds}} seconds ago.</div>
