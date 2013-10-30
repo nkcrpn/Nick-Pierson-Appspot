@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nick's Apps!</title>
+    <title>Nick's Appspot!</title>
+    <link href="/stylesheets/home.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div class="header">
-      <p>Directory for Nick-Pierson.appspot:</p>
+    <h1 class="header">Nick's Appspot</h1>
+    <div class="holder">
+      <div class="row">
+        <div class="app">
+          <h2>Wiki</h2>
+          <a href="/wiki"><img src="/images/wiki.png"></a>
+          <p>
+            A simple wiki site for searching and editing topics. Every topic is edited by the users. This wiki features
+            user accounts, password hashing and salting, user-edited content, and basic content search.
+          </p>
+        </div>
+        <div class="app">
+          <h2>Blog</h2>
+          <a href="/blog"><img src="/images/blog.png"></a>
+          <p>
+            A minimal blog. It features html-formattable post viewing / submission and caching of the home page using Memcache.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="app">
+          <h2>Ascii</h2>
+          <a href="/ascii"><img src="/images/ascii.png"></a>
+          <p>
+            Same basics as the blog except without caching and multiple pages. A place to submit and view ASCII art all on one page.
+          </p>
+        </div>
+        <div class="app">
+          <h2>Rot13</h2>
+          <a href="/rot13"><img src="/images/rot13.png"></a>
+          <p>
+            The first "app" I built using App Engine. It contains an entry box and a button to perform a ceaser cipher on your text.
+          </p>
+        </div>
+      </div>
     </div>
-
-    <div class="link"><a href="/rot13">rot13</a></div>
-    <div class="link"><a href="/ascii">ascii</a></div>
-    <div class="link"><a href="/blog">blog</a></div>
-    <div class="link"><a href="/wiki">wiki</a></div>
   </body>
 </html>

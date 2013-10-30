@@ -1,0 +1,39 @@
+body {
+  /* from subtlepatterns.com */
+  background-image: url('../images/brick.png');
+  background-repeat: repeat;
+  font-family: sans-serif;
+  width: 960px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+img {
+  border: 1px solid #000;
+  width: 450px;
+}
+
+h2 {
+  margin: 0;
+}
+
+p {
+  width: 450px;
+}
+
+.app {
+  margin: 5px;
+}
+
+.header {
+  text-align: center;
+}
+
+.holder {
+  text-align: center;
+}
+
+.app {
+  display: inline-block;
+  vertical-align: top;
+}
